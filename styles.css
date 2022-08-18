@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap");
+*{
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --church-red: #cf2e2e;
+    --church-blue: #0693e3;
+    --neutral-white: #fff;
+    --neutral-black: #111;
+    --dark-yellow: #fcb900;
+    --visible-purple: #9b51e0;
+    --light-green: #00d084;
+    --light-green-cyan: #7bdcb5;
+    --bluish-gray: #abb8c3;
+    --grotesk: font-family: "space-grotesk", "sans-serif";
+}
+header{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 50px;
+    background-color: var(--neutral-white);
+}
+header.sticky{
+    padding: 0.5px 50px;
+    position: fixed;
+}
+.header-word{
+    position: absolute;
+    left: 140px;
+    display: flex;
+    flex-direction: column;
+}
+.header-word h6{
+    color: var(--church-red);
+    font-weight: 600;
+}
+header img{
+    position: relative;
+    width: 70px;
+    transition: 0.6s;
+    margin-right: 50px;
+}
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    position: relative;
+    list-style: none;
+}
+header ul li a{
+    position: relative;
+    text-decoration: none;
+    margin: 0 20px;
+    color: #000;
+    font-weight: 500;
+    transition: 0.6s;
+}
+.home-btn{
+    text-decoration: none;
+    color: var(--neutral-white);
+    background-color: var(--church-red);
+    width: 150px;
+    position: relative;
+    border-radius: 5px;
+    min-height: 20px;
+    padding: 10px 8px;
+    font-size: 12px;
+    display: flex;
+}
+/* fade-in Styling */
+.fade-in{
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+}
+.fade-in.appear{
+    opacity: 1;
+}
+.from-left{
+    transform: translateX(-50%);
+}
+.from-right{
+    transform: translateX(50%);
+}
+.from-right,
+.from-left{
+    transition: opacity 250ms ease-in, transform 400ms ease-in;
+    opacity: 0;
+}
+.from-right.appear,
+.from-left.appear{
+    transform: translateX(0);
+    opacity: 1;
+}
+.home{
+    background: linear-gradient(#28292817,#393b3b9a),url(img/bg2.jpg);
+    width: 100%;
+    min-height: 620px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home2{
+    background: linear-gradient(#63666317,#292b2b23),url(img/shelby-miller-SkOiBDYgXdI-unsplash.jpg);
+    width: 100%;
+    min-height: 620px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home-slogan{
+    position: relative;
+    width: 50%;
+    height: 300px;
+    margin:auto;
+    top: 200px;
+    display: flex;
+    color: #fff;
+}
+.home-slogan h1{
+    font-size: 30px;
+}
+section{
+    margin: 100px 0;
+}
+.about{
+    height: 500px;
+    margin-bottom: 100px;
+}
+.about-column{
+    height: 550px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.about-row{
+    flex-direction: row;
+    flex-basis: 36%;
+    height: 500px;
+    margin: 40px;
+}
+.about-row h3{
+    margin: 20px;
+    text-transform: uppercase;
+}
+.about-row h1{
+    margin: 50px 20px;
+    font-weight: 500;
+}
+.about-row p{
+    color: var(--neutral-black);
+    margin: 20px;
+    font-size: 18px;
+}
+.about-row img{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.about-us{
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    background: var(--church-red);
+    padding: 100px 20vw;
+    display: flex;
+    flex-direction: column;
+    color: var(--neutral-white);
+}
+.about-us h3{
+    padding: 20px;
+}
+.gray{
+    background-color: #f9f9f9;
+    color: #001220;
+}
+.purple{
+    background-color: var(--visible-purple);
+}
+.events{
+    width: 100%;
+    min-height: 400px;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+.events h1{
+    text-align: center;
+    padding-top: 50px;
+    font-family: "Inter", "sans-serif";
+    color: #fff;
+}
+.events-container{
+    aspect-ratio: 900/600;
+    width: 100%;
+    height: 400px;
+    background:url(img/events.svg);
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

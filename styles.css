@@ -20,6 +20,7 @@
     --light-green-cyan: #7bdcb5;
     --bluish-gray: #abb8c3;
     --grotesk: font-family: "space-grotesk", "sans-serif";
+    --dark-blue: #001220;
 }
 header{
     position: fixed;
@@ -177,7 +178,7 @@ section{
     position: relative;
     width: 100%;
     min-height: 350px;
-    background: var(--church-red);
+    background: var(--church-blue);
     padding: 100px 20vw;
     display: flex;
     flex-direction: column;
@@ -188,7 +189,7 @@ section{
 }
 .gray{
     background-color: #f9f9f9;
-    color: #001220;
+    color: var(--dark-blue);
 }
 .purple{
     background-color: var(--visible-purple);
@@ -203,7 +204,7 @@ section{
     text-align: center;
     padding-top: 50px;
     font-family: "Inter", "sans-serif";
-    color: #fff;
+    color: var(--dark-blue);
 }
 .events-container{
     aspect-ratio: 900/600;

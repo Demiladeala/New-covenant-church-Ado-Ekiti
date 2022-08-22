@@ -8,6 +8,7 @@
     align-items: center;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    transition: .3s ease-in;
 }
 body{
     overflow-x: hidden;
@@ -25,6 +26,27 @@ body{
     --grotesk: font-family: "space-grotesk", "sans-serif";
     --dark-blue: #001220;
     --dark-gray: #5e5b5b;
+}
+.scrollButton{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: var(--church-red) url(img/up-arrow.png);
+    border-radius: 3px;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 100000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.scrollButton.active{
+    visibility: visible;
+    opacity: 1;
 }
 header{
     position: fixed;
@@ -44,10 +66,11 @@ header.sticky{
     position: fixed;
 }
 .header-word{
-    position: absolute;
-    left: 140px;
     display: flex;
     flex-direction: column;
+}
+.logo{
+    display: flex;
 }
 .header-word h6{
     color: var(--church-red);
@@ -57,7 +80,6 @@ header img{
     position: relative;
     width: 70px;
     transition: 0.6s;
-    margin-right: 50px;
 }
 header ul{
     position: relative;
@@ -76,6 +98,16 @@ header ul li a{
     color: #000;
     font-weight: 500;
     transition: 0.6s;
+}
+header input{
+    display: none;
+}
+header label{
+    font-size: 3rem;
+    color: var(--dark-blue);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
 }
 .home-btn{
     text-decoration: none;
@@ -249,7 +281,7 @@ section{
     font-size: 40px;
     font-family: 'Josefin Sans', sans-serif;
     margin: 20px;
-    padding: 5px 10px;
+    padding: 20px 10px 5px 10px;
 }
 .blog-picture-container{
     display: flex;
@@ -263,8 +295,9 @@ section{
 }
 .blog-content.message{
     font-weight: 600;
-    color: var(--dark-blue);
-    flex-basis: 30%;
+    color: #333;
+    flex-basis: 25%;
+    padding: 20px 20px 2px 2px;
 }
 .hi-slide{
     position: relative;
@@ -293,7 +326,7 @@ section{
     background-color: white;
 }
 .hi-slide .hi-prev{ 
-    left: -25px;
+    left: -45px;
 }
 .hi-slide .hi-prev::before{
     content: '<';
@@ -345,7 +378,7 @@ section{
     justify-content: center;
 }
 .contact{
-    padding-bottom: 40px;
+    padding-bottom: 90px;
 }
 .contact form{
     margin: 0 30px;
@@ -385,12 +418,41 @@ section{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    font-family: 'Inter',"sans-serif";
 }
 .box{
     height: 200px;
-    color: var(--dark-blue);
+    color: #333;
     border-radius: 5px;
     position: relative;
+}
+.box-content{
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.box-content p{
+    padding: 10px;
+    margin-top: 5px;
+}
+.box-content small{
+    display: block;
+}
+.box-content.p{
+    margin-top: 40px;
+}
+.box-content.icon{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    padding: 20px;
+    display: flex;
+}
+.box-content.icon i{
+    margin: 10px;
 }
 footer{
     padding: 40px;
@@ -399,3 +461,49 @@ footer{
     color: var(--neutral-white);
     display: flex;
 }
+
+
+
+
+
+
+@media (max-width:1200px) {
+   html{
+
+   }
+}
+
+
+@media (max-width:768px) {
+    
+    header label{
+        visibility: visible;
+        opacity: 1;
+    }
+    header ul{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0,0,0,0.2);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+        display: block;
+        transform-origin: top;
+        transform-origin: scaleY(0);
+        opacity: 0;
+    }
+    header .nav_links li a{
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem 0;
+    }
+    header input:checked ~ ul{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    header input:checked ~ label::before{
+        content: '\f00d';
+    }
+ }

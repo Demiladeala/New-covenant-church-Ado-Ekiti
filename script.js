@@ -1,8 +1,25 @@
+  /*STICKY HEADER */
+  window.addEventListener('scroll',function(){
+    var scroll = document.querySelector('.scrollButton');
+    scroll.classList.toggle("active", window.scrollY > 50);
+})
+
+function scrollUp(){
+    window.scrollTo({
+        behavior:"smooth",
+        top: 0
+    });
+};
+  
+  
+  /*STICKY HEADER */
 window.addEventListener("scroll", function(){
     var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0 );
 });
 
+
+    /*FADE-IN INTERSECTION OBSERVER */
 const faders = document.querySelectorAll('.fade-in');
 const sliders = document.querySelectorAll('.slide-in');
 
@@ -35,4 +52,5 @@ sliders.forEach(slider =>{
     appearOnScroll.observe(slider);
 });
 
+/* IMAGE SLIDER */
 $('.slide').hiSlide();

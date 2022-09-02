@@ -48,72 +48,27 @@ body{
     visibility: visible;
     opacity: 1;
 }
-header{
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.6s;
-    padding: 10px 50px;
-    background-color: var(--neutral-white);
-}
-header.sticky{
-    padding: 0.5px 50px;
-    position: fixed;
-}
-.header-word{
-    display: flex;
-    flex-direction: column;
-}
 .logo{
+    width: 220px;
     display: flex;
+    flex-direction: row;
 }
-.header-word h6{
+.logo h5{
+    font-size: 10px;
+    color: var(--dark-blue);
+}
+.logo h6{
+    font-size: 10px;
     color: var(--church-red);
-    font-weight: 600;
 }
 header img{
-    position: relative;
-    width: 70px;
-    transition: 0.6s;
-}
-header ul{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header ul li{
-    position: relative;
-    list-style: none;
-}
-header ul li a{
-    position: relative;
-    text-decoration: none;
-    margin: 0 20px;
-    color: #000;
-    font-weight: 500;
-    transition: 0.6s;
-}
-header input{
-    display: none;
-}
-header label{
-    font-size: 3rem;
-    color: var(--dark-blue);
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
+    width: 60px;
 }
 .home-btn{
     text-decoration: none;
     color: var(--neutral-white);
     background-color: var(--church-red);
-    width: 150px;
+    width: 200px;
     position: relative;
     border-radius: 5px;
     min-height: 20px;
@@ -151,6 +106,7 @@ header label{
     min-height: 620px;
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
 }
 .home2{
     background: linear-gradient(#63666317,#292b2b23),url(img/shelby-miller-SkOiBDYgXdI-unsplash.jpg);
@@ -177,6 +133,7 @@ section{
 .about{
     height: auto;
     margin-bottom: 100px;
+    margin-top: 0;
 }
 .about-column{
     width: 100%;
@@ -283,21 +240,22 @@ section{
     margin: 20px;
     padding: 20px 10px 5px 10px;
 }
-.blog-picture-container{
+.blog-column{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
-.blog-content{
-    width: 400px;
-    min-height: 50vh;
-    margin: 10px;
+.blog-row{
+    width: 300px;
+    margin: 0 40px;
 }
-.blog-content.message{
-    font-weight: 600;
-    color: #333;
-    flex-basis: 25%;
-    padding: 20px 20px 2px 2px;
+.blog-row.one{
+    flex-basis: 35%;
+}
+.blog-row.two{
+    flex-basis: 45%;
+    border: #0693e3 solid;
 }
 .hi-slide{
     position: relative;
@@ -443,6 +401,10 @@ section{
 .box-content.p{
     margin-top: 40px;
 }
+.box-content.p p{
+    font-size: 13px;
+}
+
 .box-content.icon{
     font-size: 30px;
     align-items: center;
@@ -467,43 +429,36 @@ footer{
 
 
 
-@media (max-width:1200px) {
-   html{
+@media (max-width:1115px) {
 
-   }
+
+    
+}
+
+@media (max-width:979px) {
+    .about{
+        display: block;
+    }
+    .about-row.content{
+        width: 100%;
+        margin: auto;
+    }
+    .blog-column{
+        display: block;
+    }
+    .blog-row{
+        margin: auto;
+        width: 100%;
+    }
+    .blog-row p{
+        padding: 50px;
+    }
+    .contact form{
+        margin: auto;
+    }
 }
 
 
-@media (max-width:768px) {
-    
-    header label{
-        visibility: visible;
-        opacity: 1;
-    }
-    header ul{
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        padding: 1rem 2rem;
-        border-top: .1rem solid rgba(0,0,0,0.2);
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
-        display: block;
-        transform-origin: top;
-        transform-origin: scaleY(0);
-        opacity: 0;
-    }
-    header .nav_links li a{
-        display: block;
-        margin: 2rem 0;
-        font-size: 2rem 0;
-    }
-    header input:checked ~ ul{
-        transform: scaleY(1);
-        opacity: 1;
-    }
-    header input:checked ~ label::before{
-        content: '\f00d';
-    }
+@media (max-width:468px) {
+  
  }

@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     transition: .3s ease-in;
+    scroll-behavior: smooth;
 }
 body{
     overflow-x: hidden;
@@ -48,18 +49,16 @@ body{
     visibility: visible;
     opacity: 1;
 }
-.logo{
-    width: 220px;
+header{
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    right: 0;
     display: flex;
-    flex-direction: row;
-}
-.logo h5{
-    font-size: 10px;
-    color: var(--dark-blue);
-}
-.logo h6{
-    font-size: 10px;
-    color: var(--church-red);
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0.5px 5px rgba(0, 0, 0, 0.05);
 }
 header img{
     width: 60px;
@@ -73,8 +72,97 @@ header img{
     border-radius: 5px;
     min-height: 20px;
     padding: 10px 8px;
+    margin-left: 5px;
     font-size: 12px;
     display: flex;
+}
+.logo{
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+}
+.logo h5{
+    font-size: 10px;
+    color: rgb(35, 37, 61);
+}
+.logo h6{
+    font-size: 10px;
+    color: var(--church-red);
+}
+#toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65px;
+    height: 65px;
+    background: var(--dark-blue);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#toggle::before{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    z-index: 10001000000000;
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+#toggle::after{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transform: translateY(5px);
+    transition: 0.2s;
+}
+#toggle.active::before{
+    transform: translateY(0px) rotate(45deg);
+}
+#toggle.active::after{
+    transform: translateY(0px) rotate(-45deg);
+}
+#toggle.active{
+    background: var(--dark-gray);
+}
+#navbar{
+    position: relative;
+    height: 65px;
+    right: 80px;
+    background: #fff;
+    transition: 0.5s;
+    width: 0px;
+    overflow: hidden;
+}
+#navbar.active{
+    width: 800px;
+}
+#navbar ul{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+#navbar ul li{
+    list-style: none;
+}
+#navbar ul li a{
+    color: var(--dark-blue);
+    height: 65px;
+    line-height: 65px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+#navbar ul li a:hover{
+    color: #fff;
+    background: var(--dark-blue);
 }
 /* fade-in Styling */
 .fade-in{
@@ -114,6 +202,15 @@ header img{
     min-height: 620px;
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
+}
+.home2.img{
+    background: linear-gradient(#63666317,#292b2b23),url(img/bg-5.jpg);
+    width: 100%;
+    min-height: 620px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
 }
 .home-slogan{
     position: relative;
@@ -202,7 +299,7 @@ section{
 .events-column{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
     gap: 10px;
 }
 .events-row{
@@ -255,7 +352,6 @@ section{
 }
 .blog-row.two{
     flex-basis: 45%;
-    border: #0693e3 solid;
 }
 .hi-slide{
     position: relative;
@@ -386,7 +482,7 @@ section{
 }
 .box-content{
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -402,7 +498,7 @@ section{
     margin-top: 40px;
 }
 .box-content.p p{
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .box-content.icon{
@@ -429,13 +525,11 @@ footer{
 
 
 
-@media (max-width:1115px) {
-
-
-    
-}
 
 @media (max-width:979px) {
+    .home-btn{
+        margin-top: 5px;
+    }
     .about{
         display: block;
     }
@@ -457,8 +551,30 @@ footer{
         margin: auto;
     }
 }
-
-
-@media (max-width:468px) {
-  
- }
+@media (max-width: 1100px) {
+    body{
+        overflow-x: hidden;
+    }
+    #navbar{
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 65px);
+        margin: auto;
+    }
+    #navbar.active{
+        height: calc(100vh - 65px);
+        bottom: 0;
+        width: 100%;
+    }
+    #navbar ul{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+    }
+}
